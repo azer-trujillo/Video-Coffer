@@ -6,9 +6,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={'https://pbs.twimg.com/media/EC0PcixU4AIS5Vj.jpg'} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          So sad <code>Steve Jobs</code> died of Ligma...
         </p>
         <a
           className="App-link"
