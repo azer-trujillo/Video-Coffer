@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Link } from 'react-router-dom';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import Login from './components/login';
+import Routes from './routes';
+import './styles/app.css';
 
-function App() {
+const App = (props) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={'https://pbs.twimg.com/media/EC0PcixU4AIS5Vj.jpg'} className="App-logo" alt="logo" />
-        <p>
-          So sad <code>Steve Jobs</code> died of Ligma...
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App container">
+      <Navbar fluid="true" collapseOnSelect>
+          <Navbar.Brand>
+            <Link to="/">Video Coffer</Link>
+          </Navbar.Brand>
+          <Navbar.Toggle/>
+        <Navbar.Collapse className="justify-content-end">
+          <Nav>
+            <NavItem href="/signup">Signup</NavItem>
+            <NavItem href="/login">Login</NavItem>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+      <Routes />
     </div>
   );
-}
+};
 
 export default App;
