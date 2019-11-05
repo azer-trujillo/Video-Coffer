@@ -1,22 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
-import Login from './components/login';
+import { Navbar, Nav } from 'react-bootstrap';
 import Routes from './routes';
 import './styles/app.css';
 
 const App = (props) => {
   return (
     <div className="App container">
-      <Navbar fluid="true" collapseOnSelect>
-          <Navbar.Brand>
-            <Link to="/">Video Coffer</Link>
-          </Navbar.Brand>
+      <Navbar bg="light" expand="lg">
+          <Navbar.Brand href="/">Video Coffer</Navbar.Brand>
           <Navbar.Toggle/>
         <Navbar.Collapse className="justify-content-end">
           <Nav>
-            <NavItem href="/signup">Signup</NavItem>
-            <NavItem href="/login">Login</NavItem>
+            <Nav.Link href="/signup">Signup</Nav.Link>
+            <Nav.Link href="/login">Login</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
