@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/home.css';
 import { InputGroup, FormControl, Button, ListGroup } from 'react-bootstrap';
-import { videoSearch } from '../actions/videos';
+import videoSearch from '../actions/videos';
 
 const Home = (props) => {
     return (
@@ -11,7 +11,6 @@ const Home = (props) => {
                 <p>If you love a video, don't let it go</p>
                 <InputGroup size="lg">
                     <FormControl
-                     onSubmit={value => props.videoSearch({ keyword: value, maxResults: 50, pageToken: '' })}
                      placeholder="Search for your favorite videos..."
                     />
                     <InputGroup.Append>
