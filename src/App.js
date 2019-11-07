@@ -10,10 +10,9 @@ const App = (props) => {
           <Navbar.Brand href="/">Video Coffer</Navbar.Brand>
           <Navbar.Toggle/>
         <Navbar.Collapse className="justify-content-end">
-          <Nav>
-            <Nav.Link href="/signup">Signup</Nav.Link>
-            <Nav.Link href="/login">Login</Nav.Link>
-          </Nav>
+          <Navbar.Text>
+            Signed in as: Anonymous
+          </Navbar.Text>
         </Navbar.Collapse>
       </Navbar>
       <Routes />
