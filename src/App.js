@@ -20,6 +20,4 @@ const App = (props) => {
   );
 };
 
-console.log(process.env.REACT_APP_FIREBASE_API_KEY);
-
 export default App;
