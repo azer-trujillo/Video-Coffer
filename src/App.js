@@ -5,7 +5,7 @@ import "./styles/app.css";
 import moment from "moment";
 
 const App = props => {
-  const now = moment().format();
+  const now = moment().format("LTS");
   return (
     <div className="App container">
       <div id="dateTime" align="right">
