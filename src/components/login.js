@@ -46,7 +46,23 @@ const Login = (props) => {
                 </Button>
             </Form>
         </div>
+    );*/
+
+    
+    
+
+    return(
+      <div>
+        <Button
+        onClick={fireAuth} 
+        >
+          Sign in with google
+        </Button>
+      </div>
     );
+      
 }
+
+    
 
 export default Login;
