@@ -1,20 +1,30 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import '../styles/login.css';
+import firebase from 'firebase';
+import GoogleLogin from 'react-google-login'
+import fireAuth from '../actions/fireAuth';
+//import io from 'socket.io-client'
+//import OAuth from './OAuth'
+
+
+
 
 const Login = (props) => {
-    const [email, setEmail] = useState("");
+    
+
+    const [isLoggedIn, setLoggedIn] = useState("");
     const [password, setPassword] = useState("");
 
-    const validateForm = () => {
+   /* const validateForm = () => {
         return email.length > 0 && password.length > 0;
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-    }
+    } */
 
-    return (
+    /*return (
         <div className="Login">
             <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="formGroupEmail">
