@@ -1,18 +1,18 @@
-import React from 'react';
-import { Navbar, Nav } from 'react-bootstrap';
-import Routes from './routes';
-import './styles/app.css';
+import React from "react";
+import { Navbar, Nav } from "react-bootstrap";
+import Routes from "./routes";
+import "./styles/app.css";
+import Clock from "./components/clock";
 
-const App = (props) => {
+const App = props => {
   return (
     <div className="App container">
+      <Clock />
       <Navbar bg="light" expand="lg">
-          <Navbar.Brand href="/">Video Coffer</Navbar.Brand>
-          <Navbar.Toggle/>
+        <Navbar.Brand href="/">Video Coffer</Navbar.Brand>
+        <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
-          <Navbar.Text>
-            Signed in as: Anonymous
-          </Navbar.Text>
+          <Navbar.Text>Signed in as: Anonymous</Navbar.Text>
         </Navbar.Collapse>
       </Navbar>
       <Routes />
