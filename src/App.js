@@ -2,15 +2,12 @@ import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import Routes from "./routes";
 import "./styles/app.css";
-import moment from "moment";
+import Clock from "./components/clock";
 
 const App = props => {
-  const now = moment().format("LTS");
   return (
     <div className="App container">
-      <div id="dateTime" align="right">
-        {now}
-      </div>
+      <Clock />
       <Navbar bg="light" expand="lg">
         <Navbar.Brand href="/">Video Coffer</Navbar.Brand>
         <Navbar.Toggle />
