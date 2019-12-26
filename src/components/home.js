@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/home.css';
-import { connect } from 'react-redux';
-import { InputGroup, FormControl, Button, ListGroup } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { InputGroup, FormControl, Button, ListGroup, Spinner, Card } from 'react-bootstrap';
 import videoSearch from '../actions/videos';
 
-const Home = (props) => {
+const Home = () => {
+    const dispatch = useDispatch();
+    const videos = useSelector((state) => state.videos);
+    const { fetched, fetching } = videos;
+
+    const handleSubmit = (e) => {
+        dispatch(videoSearch({ keywords: e, maxResults: 50, pageToken: '' }))
+    };
+    console.log(fetched)
+
     return (
         <div className="Home">
             <div className="lander">
@@ -12,28 +21,17 @@ const Home = (props) => {
                 <p>If you love a video, don't let it go</p>
                 <InputGroup size="lg">
                     <FormControl
-                     placeholder="Search for your favorite videos..."
-                     onSubmit={value => props.videoSearch({ keywords: value, pageToken: '', maxResults: 50 })}
+                        placeholder="Inject queries here..."
+                        onChange={(e) => handleSubmit(e)}
                     />
-                    <InputGroup.Append>
-                        <Button
-                        variant="outline-secondary"
-                        >
-                        Search
-                        </Button>
-                    </InputGroup.Append>
                 </InputGroup>
                 <div className="results">
-                    <ListGroup>
-                    </ListGroup>
+                    {fetched ? <div>Displays items</div> : null}
                 </div>
             </div>
         </div>
     );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-    videoSearch: InputGroup => dispatch(videoSearch(InputGroup))
-});
 
-export default connect(mapDispatchToProps)(Home);
+export default Home;
