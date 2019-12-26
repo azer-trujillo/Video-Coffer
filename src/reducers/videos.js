@@ -7,7 +7,7 @@ const videosReducerDefaultState = {
         totalResults: 0,
         resultsPerPage: 0,
     },
-    vids: []
+    videos: []
 };
 
 const videosReducer = (state = videosReducerDefaultState, action) => {
