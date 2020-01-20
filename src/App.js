@@ -1,10 +1,10 @@
 import React from "react";
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
 import Routes from "./routes";
 import "./styles/app.css";
 import Clock from "./components/clock";
 
-const App = props => {
+const App = (props) => {
   return (
     <div className="App container">
       <Clock />

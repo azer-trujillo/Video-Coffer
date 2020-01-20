@@ -1,6 +1,5 @@
-import React, { Component } from "react";
-import moment, { duration } from "moment";
-import { app } from "firebase";
+import React from "react";
+import moment from "moment";
 
 class Clock extends React.Component {
   constructor(props) {
