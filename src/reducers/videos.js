@@ -1,4 +1,4 @@
-const videosReducerDefaultState = {
+const INITIAL_STATE = {
     fetching: false,
     fetched: false,
     error: null,
@@ -7,30 +7,30 @@ const videosReducerDefaultState = {
         totalResults: 0,
         resultsPerPage: 0,
     },
-    videos: []
+    items: []
 };
 
-const videosReducer = (state = videosReducerDefaultState, action) => {
+const videosReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case 'FETCH_VIDEOS_PROCESS':
+        case 'FETCH_VIDEOS_PENDING':
             return {
                 ...state,
                 fetching: true
             };
-        case 'FETCH_VIDEOS_FAIL':
+        case 'FETCH_VIDEOS_REJECTED':
             return {
                 ...state,
                 fetching: false,
                 error: action.payload
             };
-        case 'FETCH_VIDEOS_PASS':
+        case 'FETCH_VIDEOS_FULFILLED':
             return {
                 ...state,
                 fetching: false,
                 fetched: true,
                 nextPageToken: action.payload.data.nextPageToken,
                 pageInfo: action.payload.data.pageInfo,
-                vids: action.payload.data.vids
+                items: action.payload.data.items
             };
         default:
             return state;
