@@ -4,16 +4,16 @@ import '../styles/videoPlayer.css';
 
 const VideoPlayer = () => {
 
-    const videos = useSelector(state => state.videos);
-    const { items } = videos;
+    const videoId = useSelector(state => state.videoId);
+    const { id } = videoId;
 
     return (
         <div className="container">
             <div className="mediaPlayer">
                 <iframe
-                    src={`https://www.youtube.com/embed/IU2wBKoDOzg`}
+                    src={`https://www.youtube.com/embed/${id}`}
                     frameBorder='0'
-                    height='390'
+                    height='480'
                     width='640'
                     allow='autoplay; encrypted-media'
                     allowFullScreen

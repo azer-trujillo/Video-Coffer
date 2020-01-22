@@ -1,25 +1,27 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { InputGroup, FormControl, ListGroup, Spinner, Card, Button } from 'react-bootstrap';
 import { debounce } from 'throttle-debounce';
-import '../styles/searchBar.css';
 import videoSearch from '../actions/videos';
-import { useHistory } from 'react-router-dom';
+import videoId from '../actions/videoId';
+import '../styles/searchBar.css';
 
-const SearchBar = (props) => {
+
+const SearchBar = () => {
+
     const dispatch = useDispatch();
     const videos = useSelector(state => state.videos);
     const { fetched, fetching, error } = videos;
+
     let history = useHistory();
 
-    console.log(videos);
-
     const handleOnChange = debounce(500, (e) => {
-        console.log(e)
         dispatch(videoSearch({ keywords: e, maxResults: 50, pageToken: '' }))
     });
 
-    const handleClick = () => {
+    const handleClick = (key) => {
+        dispatch(videoId(key))
         history.push('/videoPlayer')
     };
 
@@ -28,7 +30,7 @@ const SearchBar = (props) => {
             <InputGroup size="lg">
                 <FormControl
                     placeholder="Inject queries here..."
-                    onChange={(e) => handleOnChange(e)}
+                    onChange={(value) => handleOnChange(value.target.value)}
                 />
             </InputGroup>
             <div className="results">
@@ -39,11 +41,11 @@ const SearchBar = (props) => {
                     />
                 }
                 {error ? <p>We encountered an error :(</p> : null}
-                {fetched && videos.items.map((item, i) => {
+                {fetched && videos.items.map((item) => {
                     return (
-                        <ListGroup className="container">
+                        <ListGroup className="container" key={item.id.videoId}>
                             <div className="row">
-                                <Card border="primary" style={{ width: '18rem' }} key={i}>
+                                <Card border="primary" style={{ width: '18rem' }}>
                                     <Card.Img variant="top" src={item.snippet.thumbnails.medium.url} />
                                     <Card.Body>
                                         <Card.Title>{item.snippet.title}</Card.Title>
@@ -51,7 +53,7 @@ const SearchBar = (props) => {
                                     </Card.Body>
                                     <Button
                                         variant="primary"
-                                        onClick={handleClick}
+                                        onClick={() => { handleClick(item.id.videoId) }}
                                     >Play</Button>
                                     <Button variant="secondary">Watch Later</Button>
                                 </Card>
