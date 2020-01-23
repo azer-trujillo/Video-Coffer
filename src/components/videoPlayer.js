@@ -25,8 +25,8 @@ const VideoPlayer = () => {
                 <iframe
                     src={`https://www.youtube.com/embed/${id}`}
                     frameBorder='0'
-                    height='480'
-                    width='640'
+                    height='518'
+                    width='1080'
                     allow='autoplay; encrypted-media'
                     allowFullScreen
                     title='video'
