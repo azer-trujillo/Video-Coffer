@@ -9,6 +9,7 @@ const App = (props) => {
     <div className="App container">
       <Clock />
       <Navbar bg="light" expand="lg">
+        <img src="favicon.png" height="32" width="32" />
         <Navbar.Brand href="/">Video Coffer</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
