@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import Routes from './routes';
@@ -6,13 +6,12 @@ import './styles/app.css';
 import { connect } from 'react-redux';
 import { useDispatch, useSelector } from 'react-redux';
 import addUser from './actions/User';
-=======
 import React from "react";
 import { Navbar } from "react-bootstrap";
 import Routes from "./routes";
 import "./styles/app.css";
 import Clock from "./components/clock";
->>>>>>> origin/master
+
 
 const App = (props) => {
 
