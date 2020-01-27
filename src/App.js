@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import Routes from './routes';
@@ -5,6 +6,13 @@ import './styles/app.css';
 import { connect } from 'react-redux';
 import { useDispatch, useSelector } from 'react-redux';
 import addUser from './actions/User';
+=======
+import React from "react";
+import { Navbar } from "react-bootstrap";
+import Routes from "./routes";
+import "./styles/app.css";
+import Clock from "./components/clock";
+>>>>>>> origin/master
 
 const App = (props) => {
 
@@ -21,10 +29,13 @@ const App = (props) => {
 
   return (
     <div className="App container">
+      <Clock />
       <Navbar bg="light" expand="lg">
-          <Navbar.Brand href="/">Video Coffer</Navbar.Brand>
-          <Navbar.Toggle/>
+        <img src="favicon.png" height="32" width="32" />
+        <Navbar.Brand href="/">Video Coffer</Navbar.Brand>
+        <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
+
           <Navbar.Text>
            {
              name

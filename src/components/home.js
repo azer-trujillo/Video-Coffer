@@ -1,8 +1,6 @@
 import React from 'react';
 import '../styles/home.css';
-import { connect } from 'react-redux';
-import { InputGroup, FormControl, Button, ListGroup } from 'react-bootstrap';
-import videoSearch from '../actions/videos';
+import SearchBar from './searchBar';
 
 const Home = (props) => {
     return (
@@ -10,30 +8,11 @@ const Home = (props) => {
             <div className="lander">
                 <h1>Video Coffer</h1>
                 <p>If you love a video, don't let it go</p>
-                <InputGroup size="lg">
-                    <FormControl
-                     placeholder="Search for your favorite videos..."
-                     onSubmit={value => props.videoSearch({ keywords: value, pageToken: '', maxResults: 50 })}
-                    />
-                    <InputGroup.Append>
-                        <Button
-                        variant="outline-secondary"
-                        >
-                        Search
-                        </Button>
-                    </InputGroup.Append>
-                </InputGroup>
-                <div className="results">
-                    <ListGroup>
-                    </ListGroup>
-                </div>
+                <SearchBar />
             </div>
         </div>
     );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-    videoSearch: InputGroup => dispatch(videoSearch(InputGroup))
-});
 
-export default connect(mapDispatchToProps)(Home);
+export default Home;

@@ -8,7 +8,13 @@ export const startLogin = () => {
       // The signed-in user info.
       let user = result.user;
       // ...
+      var user = firebase.auth().currentUser;
 
+      if (user) {
+      
+      } else {
+
+      }
       //console.log(configureStore);
    
       console.log(user);
