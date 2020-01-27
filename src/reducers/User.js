@@ -1,45 +1,31 @@
-import{createStore, combineReducers} from 'react';
+import {connect} from 'react-redux';
 
-const configureStore = () => {
-    const store = createStore()
-    store.subscribe(()=>{
-        console.log(store.getState());
-    });
-}
 const userReducerDefaultState = {
     user: 'Anon',
-    name: undefined,
+    name: 'undefined',
     email: undefined,
-    id: 0
-};
-const addUser =(
-    {
-        user= '',
-        name = '',
-        email=''
-    }={}
-    ) =>({
-    type: 'upUser',
-    user,
-    name,
-    email,  
-    id: 410
+    id: 0,
 
-});
-const userReducer = (state = userReducerDefaultState, action) => {
+};
+
+
+const userReducer = (state = userReducerDefaultState  , action) => {
     switch (action.type) {
         case 'upUser':
-            state.user = action.user;
-            state.name = action.name;
-            state.email = action.email;
-            state.id = action.id;
+            console.log(state);
+            return{
+                ...state,
+            user: action.user,
+            name: action.payload,
+            email: action.email,
+            id: action.id
+        }
+        case 'STATE':
+            return state;
     default:
         return state;
     }
 
 }
 
-//const store =createStore(userReducer);
-
-export default  userReducer;
-export {addUser};
+export default userReducer;
