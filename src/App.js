@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import addUser from './actions/User';
 import { Navbar } from "react-bootstrap";
 import Clock from "./components/clock";
+import firebase from './actions/auth';
 
 
 const App = (props) => {
