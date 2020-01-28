@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { startLogin } from '../actions/auth';
-import { Route, Redirect, } from 'react-router';
-import { useHistory } from 'react-router-dom';
 
 
 export const LoginPage = ({ startLogin }) => {

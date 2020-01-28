@@ -1,5 +1,3 @@
-import {connect} from 'react-redux';
-
 const userReducerDefaultState = {
     user: undefined,
     name: undefined,
