@@ -2,12 +2,15 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware';
 import videosReducer from '../reducers/videos';
+import userReducer from '../reducers/User';
 import videoIdReducer from '../reducers/videoId';
+
 
 const configureStore = () => {
     const store = createStore(
         combineReducers({
             videos: videosReducer,
+            users: userReducer,
             videoId: videoIdReducer
         }),
         applyMiddleware(thunk, promise)
@@ -15,5 +18,7 @@ const configureStore = () => {
     )
     return store;
 };
+
+
 
 export default configureStore;
