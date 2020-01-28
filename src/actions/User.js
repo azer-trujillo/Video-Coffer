@@ -1,22 +1,23 @@
 import {connect } from 'react-redux';
 
 
-const addUser =(
+export const login =(
     {
         user= '',
         name = '',
         email='',
-        
+        id= 0
     }={}
     ) =>({
-    type: 'upUser',
+    type: 'LOGIN',
     user,
     name,
     email,  
-    id: 410,
+    id,
     payload: name
 
 });
 
-
-export default addUser;
+export const logout = ()=>({
+    type:'LOGOUT'
+});

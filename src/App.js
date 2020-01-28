@@ -1,13 +1,9 @@
-
 import React from 'react';
 import Routes from './routes';
 import './styles/app.css';
-import { connect } from 'react-redux';
 import { useDispatch, useSelector } from 'react-redux';
-import addUser from './actions/User';
 import { Navbar } from "react-bootstrap";
 import Clock from "./components/clock";
-import firebase from './actions/auth';
 
 
 const App = (props) => {
@@ -36,8 +32,6 @@ const App = (props) => {
            {
              name
            }
-            {console.log(usName)}
-            
           </Navbar.Text>
         </Navbar.Collapse>
       </Navbar>

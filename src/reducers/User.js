@@ -1,8 +1,8 @@
 import {connect} from 'react-redux';
 
 const userReducerDefaultState = {
-    user: 'Anon',
-    name: 'undefined',
+    user: undefined,
+    name: undefined,
     email: undefined,
     id: 0,
 
@@ -11,15 +11,18 @@ const userReducerDefaultState = {
 
 const userReducer = (state = userReducerDefaultState  , action) => {
     switch (action.type) {
-        case 'upUser':
+        case 'LOGIN':
             console.log(state);
+            console.log('heylisten');
             return{
                 ...state,
             user: action.user,
             name: action.payload,
             email: action.email,
-            id: action.id
-        }
+            id: action.id,
+            };
+        case 'LOGOUT':
+            return{};
         case 'STATE':
             return state;
     default:

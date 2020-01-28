@@ -8,6 +8,7 @@ import './styles/index.css';
 import * as serviceWorker from './serviceWorker';
 import {firebase} from './firebase/firebaseConfig';
 import {history} from './routes';
+import {login, logout} from './actions/User';
 
 
 const store = configureStore();
@@ -24,10 +25,12 @@ ReactDOM.render(jsx, document.getElementById('root'));
 
 firebase.auth().onAuthStateChanged((user)=>{ 
   if(user){
+    store.dispatch(login({user: user.displayName, name:user.displayName, email:user.email, id:user.uid }));
     history.push('/home');
-    console.log('loged in')
+    console.log('logged in');
   }else{
     console.log('loged out')
+    store.dispatch(logout());
     history.push('/');
   }
 });
