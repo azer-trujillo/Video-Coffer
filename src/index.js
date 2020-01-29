@@ -21,16 +21,16 @@ const jsx = (
 );
 ReactDOM.render(jsx, document.getElementById('root'));
 
-
-
 firebase.auth().onAuthStateChanged((user)=>{ 
   if(user){
     store.dispatch(login({user: user.displayName, name:user.displayName, email:user.email, id:user.uid }));
+    console.log(store.getState());
     history.push('/home');
-    console.log('logged in');
+    
   }else{
     console.log('loged out')
     store.dispatch(logout());
+    console.log(store.getState());
     history.push('/');
   }
 });

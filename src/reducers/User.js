@@ -10,8 +10,6 @@ const userReducerDefaultState = {
 const userReducer = (state = userReducerDefaultState  , action) => {
     switch (action.type) {
         case 'LOGIN':
-            console.log(state);
-            console.log('heylisten');
             return{
                 ...state,
             user: action.user,
