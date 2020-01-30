@@ -22,15 +22,13 @@ const VideoPlayer = () => {
                     variant="danger"
                     onClick={handleClick}
                 >Go Back</Button>
-                <iframe
-                    src={`https://www.youtube.com/embed/${id}`}
-                    frameBorder='0'
-                    height='518'
-                    width='1080'
-                    allow='autoplay; encrypted-media'
-                    allowFullScreen
-                    title='video'
-                />
+                <div className="embed-responsive embed-responsive-16by9">
+                    <iframe
+                        className="embed-responsive-item"
+                        src={`https://www.youtube.com/embed/${id}`}
+                        allowFullScreen
+                    />
+                </div>
             </div>
         </div>
     );
