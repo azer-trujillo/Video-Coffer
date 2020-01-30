@@ -6,7 +6,7 @@ import NotFound from './components/notFound';
 import VideoPlayer from './components/videoPlayer';
 import { withRouter } from "react-router-dom";
 import createHistory from 'history/createBrowserHistory';
-import PrivateRoute from './components/PrivateRoute';
+import PrivateRoute from './components/privateRoute';
 import PublicRoute from './components/PublicRoute';
 
 export const history = createHistory();
