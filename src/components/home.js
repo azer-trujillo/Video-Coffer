@@ -3,6 +3,12 @@ import '../styles/home.css';
 import SearchBar from './searchBar';
 import {connect} from 'react-redux';
 import {startLogout} from '../actions/auth';
+import {history} from '../routes';
+
+const toplayer = ()=>{
+        //ReactDOM.render(jsx, document.getElementById('root'));
+        history.push('/videoPlayer')
+};
 
 export const Home = ({startLogout}) => {
     return (
@@ -13,6 +19,7 @@ export const Home = ({startLogout}) => {
                 <SearchBar />
                 <div>
                     <button onClick={function(event){ startLogout()}}>Logout</button>
+                    <button onClick={function(event){ toplayer()}}>player</button>
                 </div>
             </div>
         </div>

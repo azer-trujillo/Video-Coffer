@@ -15,13 +15,14 @@ const Routes = () => {
     return (
        <Router history={history}>
         <Switch>
-            <Route path="/" exact component={Login} />
+            <PublicRoute path="/" exact component={Login} />
             <PrivateRoute path="/home" exact component={Home} />
             <PrivateRoute path="/videoPlayer" exact component={VideoPlayer} />
-            <PublicRoute component={NotFound} />
+            <Route component={NotFound} />
         </Switch>
         </Router>
     );
 };
+
 
 export default withRouter(Routes);

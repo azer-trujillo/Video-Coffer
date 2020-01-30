@@ -10,8 +10,7 @@ export const login =(
     user,
     name,
     email,  
-    id,
-    payload: name
+    id
 
 });
 
