@@ -1,5 +1,6 @@
 import React from "react";
 import moment from "moment";
+import "../styles/clock.css";
 
 class Clock extends React.Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class Clock extends React.Component {
   }
 
   render() {
-    return <h6 style={{ textAlign: "right" }}>{this.state.time}</h6>;
+    return <h6 className="clock">{this.state.time}</h6>;
   }
 }
 

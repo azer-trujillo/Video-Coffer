@@ -1,3 +1,15 @@
-.container .row {
-    padding: 8px 8px;
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem 8px;
+}
+
+.results {
+    margin: 0 auto;
+    display: block
+}
+
+.cardItem {
+    width: 18rem;
 }

@@ -19,7 +19,7 @@ const VideoPlayer = () => {
         <div className="container">
             <div className="mediaPlayer">
                 <Button
-                    variant="primary"
+                    variant="danger"
                     onClick={handleClick}
                 >Go Back</Button>
                 <iframe
