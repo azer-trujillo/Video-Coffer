@@ -10,7 +10,6 @@ const App = (props) => {
 
   const usName = useSelector((state) => state.users);
   const { name } = usName;
-  let dname;
   // store.subscribe(()=>{
     
   //   dname = store.getState().users.name;
