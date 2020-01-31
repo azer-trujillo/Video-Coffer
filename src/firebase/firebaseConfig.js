@@ -25,4 +25,16 @@ firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
+database.ref().set({
+  name:"raul",
+  age: "infinite"
+})
+
+
+database.ref('attributes').set({
+  height: 183,
+  weight: 179,
+});
+
+
 export { firebase, firebaseConfig, googleAuthProvider, database as default };
