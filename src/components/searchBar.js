@@ -1,11 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-<<<<<<< HEAD
-import { InputGroup, FormControl, Spinner, Card, Button, CardDeck, Alert } from 'react-bootstrap';
-=======
 import { InputGroup, FormControl, ListGroup, Spinner, Card, Button } from 'react-bootstrap';
->>>>>>> conflicts
 import { debounce } from 'throttle-debounce';
 import videoSearch from '../actions/videos';
 import videoId, {addVideoList} from '../actions/videoId';
