@@ -8,7 +8,7 @@ export const login =(
     ) =>({
     type: 'LOGIN',
     user,
-    name,
+    payload: name,
     email,  
     id
 
