@@ -4,6 +4,7 @@ import promise from 'redux-promise-middleware';
 import videosReducer from '../reducers/videos';
 import userReducer from '../reducers/User';
 import videoIdReducer from '../reducers/videoId';
+import listReducer from '../reducers/list';
 
 
 const configureStore = () => {
@@ -11,7 +12,8 @@ const configureStore = () => {
         combineReducers({
             videos: videosReducer,
             users: userReducer,
-            videoId: videoIdReducer
+            videoId: videoIdReducer,
+            list: listReducer
         }),
         applyMiddleware(thunk, promise)
         // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
