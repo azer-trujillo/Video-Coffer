@@ -8,6 +8,7 @@ import Clock from "./components/clock";
 const App = props => {
   const usName = useSelector(state => state.users);
   const { name } = usName;
+  
   return (
     <div className="App container">
       <Clock />

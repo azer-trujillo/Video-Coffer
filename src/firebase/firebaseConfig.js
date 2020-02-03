@@ -25,6 +25,7 @@ firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
+
 // function hashCode(s) {
 //   for(var i = 0, h = 0; i < s.length; i++)
 //       h = Math.imul(31, h) + s.charCodeAt(i) | 0;
@@ -41,5 +42,6 @@ const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 //   })
 //  console.log( savedvideos);
 // });
+
 
 export { firebase, firebaseConfig, googleAuthProvider, database as default };
