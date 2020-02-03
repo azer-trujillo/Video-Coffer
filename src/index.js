@@ -26,7 +26,7 @@ firebase.auth().onAuthStateChanged((user)=>{
     store.dispatch(login({user: user.displayName, name:user.displayName, email:user.email, id:user.uid }));
     //ReactDOM.render(jsx, document.getElementById('root'));
     if(history.location.pathname === '/'){
-      history.push('/videoPlayer');
+      history.push('/home');
     }
     
   }else{
