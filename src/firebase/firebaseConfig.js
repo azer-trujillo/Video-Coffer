@@ -25,16 +25,21 @@ firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-database.ref().set({
-  name:"raul",
-  age: "infinite"
-})
-
-
-database.ref('attributes').set({
-  height: 183,
-  weight: 179,
-});
-
+// function hashCode(s) {
+//   for(var i = 0, h = 0; i < s.length; i++)
+//       h = Math.imul(31, h) + s.charCodeAt(i) | 0;
+//   return h;
+// };
+// const hash = hashCode('raul.lopez@partnerhero.com')
+// database.ref(`videolist/${hash}`).once('value').then((snapshot)=>{
+//   const savedvideos =[];
+//   snapshot.forEach((child)=>{
+//       savedvideos.push({
+//           sid: child.key,
+//           ...child.val()
+//       })
+//   })
+//  console.log( savedvideos);
+// });
 
 export { firebase, firebaseConfig, googleAuthProvider, database as default };
