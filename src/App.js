@@ -8,16 +8,6 @@ import Clock from "./components/clock";
 const App = props => {
   const usName = useSelector(state => state.users);
   const { name } = usName;
-<<<<<<< HEAD
-  // store.subscribe(()=>{
-
-  //   dname = store.getState().users.name;
-  //   console.log(dname);
-  //   //this.forceUpdate();
-  // });
-  // store.dispatch(addUser({user: 'boom' ,name: 'catapoom', email: 'chinchin'}));
-=======
->>>>>>> db
 
   return (
     <div className="App container">
@@ -34,12 +24,4 @@ const App = props => {
     </div>
   );
 };
-
-<<<<<<< HEAD
-// const mapStateToProps = state => ({
-//   props: state.users
-// });
-
-=======
->>>>>>> db
 export default App;
