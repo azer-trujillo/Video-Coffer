@@ -33,9 +33,10 @@ export const addVideoList = (videoData)=>{
     };
 };
 
-export const getVideoList = (user)=>{
+export const getVideoList = (email)=>{
     return (dispatch)=>{
-        database.ref(`videolist/${user}`).once('value').then((snapshot)=>{
+        const hash = hashCode(email)
+        database.ref(`videolist/${hash}`).once('value').then((snapshot)=>{
             const savedvideos =[];
             snapshot.forEach((child)=>{
                 savedvideos.push({
@@ -43,7 +44,7 @@ export const getVideoList = (user)=>{
                     ...child.val()
                 })
             })
-           console.log( snapshot.val());
+           console.log( savedvideos);
         });
     };
 };
