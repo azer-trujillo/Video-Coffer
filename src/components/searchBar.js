@@ -1,10 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { InputGroup, FormControl, Spinner, Card, Button, CardDeck } from 'react-bootstrap';
+import { InputGroup, FormControl, ListGroup, Spinner, Card, Button } from 'react-bootstrap';
 import { debounce } from 'throttle-debounce';
 import videoSearch from '../actions/videos';
-import videoId from '../actions/videoId';
+import videoId, {addVideoList} from '../actions/videoId';
 import '../styles/searchBar.css';
 
 
@@ -12,6 +12,8 @@ const SearchBar = () => {
 
     const dispatch = useDispatch();
     const videos = useSelector(state => state.videos);
+    const sName = useSelector((state) => state.users);
+    const { email } = sName;
     const { fetched, fetching, error } = videos;
 
     let history = useHistory();
@@ -24,6 +26,7 @@ const SearchBar = () => {
         dispatch(videoId(key))
         history.push('/videoPlayer')
     };
+    
 
     return (
         <div>
@@ -33,33 +36,42 @@ const SearchBar = () => {
                     onChange={(value) => handleOnChange(value.target.value)}
                 />
             </InputGroup>
-            <div className="flex-container">
+            <div className="results">
                 {fetching &&
                     <Spinner
                         animation="border"
-                        variant="danger"
                         role="status"
                     />
                 }
                 {error ? <p>We encountered an error :(</p> : null}
                 {fetched && videos.items.map((item) => {
+                    const videoData = {
+                        title: item.snippet.title,
+                        description: item.snippet.description,
+                        id:item.snippet.id,
+                        thumbnail: item.snippet.thumbnails.medium.url,
+                        email: email
+                    };
+                    console.log(email);
                     return (
-                        <div key={item.id.videoId}>
-                            <CardDeck className="results">
-                                <Card border="danger" className="cardItem">
+                        <ListGroup className="container" key={item.id.videoId}>
+                            <div className="row">
+                                <Card border="primary" style={{ width: '18rem' }}>
                                     <Card.Img variant="top" src={item.snippet.thumbnails.medium.url} />
                                     <Card.Body>
                                         <Card.Title>{item.snippet.title}</Card.Title>
                                         <Card.Text>{item.snippet.description}</Card.Text>
                                     </Card.Body>
                                     <Button
-                                        variant="danger"
+                                        variant="primary"
                                         onClick={() => { handleClick(item.id.videoId) }}
                                     >Play</Button>
-                                    <Button variant="warning">Watch Later</Button>
+                                    <Button 
+                                        variant="secondary"
+                                        onClick={addVideoList(videoData)}>Watch Later</Button>
                                 </Card>
-                            </CardDeck>
-                        </div>
+                            </div>
+                        </ListGroup>
                     )
                 })}
             </div>
