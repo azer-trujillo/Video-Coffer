@@ -1,6 +1,7 @@
 import database from '../firebase/firebaseConfig';
 import list from '../actions/list';
 
+
 const videoId = (key) => ({
     type: "VIDEO_ID",
     payload: key
@@ -65,14 +66,5 @@ export const removeVideoList = (videoData)=>{
         })
     };
 };
-export default videoId;
 
-// const mapDispatchToProps = (dispatch) => ({
-//     addList: () => dispatch(startLogin()),
-//     getList: () => dispatch(getList()),
-//     removeList: ()=> dispatch(removeList())
-//   });
-  
-  
-  
-// export default connect(undefined, mapDispatchToProps)(addVideoList,getVideoList,removeVideoList);
+export default videoId;
