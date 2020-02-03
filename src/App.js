@@ -5,10 +5,9 @@ import Clock from "./components/clock";
 import Routes from './routes';
 import './styles/app.css';
 
-
-const App = (props) => {
-
-  const usName = useSelector((state) => state.users);
+const App = props => {
+  
+  const usName = useSelector(state => state.users);
   const { name } = usName;
 
   return (
@@ -19,9 +18,7 @@ const App = (props) => {
         <Navbar.Brand href="/">Video Coffer</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
-          <Navbar.Text>
-            {name}
-          </Navbar.Text>
+          <Navbar.Text>{name}</Navbar.Text>
         </Navbar.Collapse>
       </Navbar>
       <Routes />
