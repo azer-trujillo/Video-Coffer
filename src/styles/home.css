@@ -1,21 +1,22 @@
 .Home .lander {
-  padding: 80px 20px;
-  text-align: center;
-}
+    padding: 80px 20px;
+    text-align: center;
+  }
+  
+  .Home .lander h1 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+  }
+  
+  .Home .lander p {
+    color: #999;
+    margin-bottom: 3rem;
+  }
 
-.Home .lander h1 {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 600;
-}
+  .Home .results {
+    margin-top: 8px;
+  }
 
-.Home .lander p {
-  color: #999;
-}
-
-.Home .results {
-  margin-top: 2rem;
-}
-
-.Home .buttons {
+  .Home .buttons {
   margin: 1rem 0rem;
 }

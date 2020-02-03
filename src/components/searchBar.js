@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { InputGroup, FormControl, Spinner, Card, Button, CardDeck } from 'react-bootstrap';
+import { InputGroup, FormControl, Spinner, Card, Button, CardDeck, Alert } from 'react-bootstrap';
 import { debounce } from 'throttle-debounce';
 import videoSearch from '../actions/videos';
 import videoId from '../actions/videoId';
@@ -41,7 +41,12 @@ const SearchBar = () => {
                         role="status"
                     />
                 }
-                {error ? <p>We encountered an error :(</p> : null}
+                {error ?
+                    <Alert variant="danger">
+                        <Alert.Heading>Oops! We encountered an error! :(</Alert.Heading>
+                        <p>Try searching again or refreshing the webpage!</p>
+                    </Alert>
+                    : null}
                 {fetched && videos.items.map((item) => {
                     return (
                         <div key={item.id.videoId}>
