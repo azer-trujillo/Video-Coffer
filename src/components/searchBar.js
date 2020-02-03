@@ -18,7 +18,7 @@ const SearchBar = () => {
 
     let history = useHistory();
 
-    const handleOnChange = debounce(500, (e) => {
+    const handleOnChange = debounce(700, (e) => {
         dispatch(videoSearch({ keywords: e, maxResults: 50, pageToken: '' }))
     });
 
