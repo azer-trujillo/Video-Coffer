@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { InputGroup, FormControl, Spinner, Card, Button, CardDeck, Alert } from 'react-bootstrap';
 import { debounce } from 'throttle-debounce';
 import videoSearch from '../actions/videos';
-import videoId from '../actions/videoId';
+import videoId, {addVideoList} from '../actions/videoId';
 import '../styles/searchBar.css';
 
 
@@ -12,6 +12,8 @@ const SearchBar = () => {
 
     const dispatch = useDispatch();
     const videos = useSelector(state => state.videos);
+    const sName = useSelector((state) => state.users);
+    const { email } = sName;
     const { fetched, fetching, error } = videos;
 
     let history = useHistory();
@@ -48,6 +50,13 @@ const SearchBar = () => {
                     </Alert>
                     : null}
                 {fetched && videos.items.map((item) => {
+                    const videoData = {
+                        title: item.snippet.title,
+                        description: item.snippet.description,
+                        id:item.snippet.id,
+                        thumbnail: item.snippet.thumbnails.medium.url,
+                        email: email
+                    };
                     return (
                         <div key={item.id.videoId}>
                             <CardDeck className="results">
@@ -61,7 +70,9 @@ const SearchBar = () => {
                                         variant="danger"
                                         onClick={() => { handleClick(item.id.videoId) }}
                                     >Play</Button>
-                                    <Button variant="warning">Watch Later</Button>
+                                    <Button 
+                                        variant="secondary"
+                                        onClick={addVideoList(videoData)}>Watch Later</Button>
                                 </Card>
                             </CardDeck>
                         </div>

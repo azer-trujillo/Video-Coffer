@@ -6,7 +6,7 @@ import App from './App';
 import configureStore from './store/store';
 import './styles/index.css';
 import * as serviceWorker from './serviceWorker';
-import {firebase} from './firebase/firebaseConfig';
+import database, {firebase} from './firebase/firebaseConfig';
 import {history} from './routes';
 import {login, logout} from './actions/User';
 
@@ -26,7 +26,7 @@ firebase.auth().onAuthStateChanged((user)=>{
     store.dispatch(login({user: user.displayName, name:user.displayName, email:user.email, id:user.uid }));
     //ReactDOM.render(jsx, document.getElementById('root'));
     if(history.location.pathname === '/'){
-      history.push('/videoPlayer');
+      history.push('/home');
     }
     
   }else{

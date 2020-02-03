@@ -5,10 +5,10 @@ import Login from "./components/login";
 import NotFound from "./components/notFound";
 import VideoPlayer from "./components/videoPlayer";
 import { withRouter } from "react-router-dom";
-import createHistory from "history/createBrowserHistory";
-import PrivateRoute from "./components/privateRoute";
-import PublicRoute from "./components/PublicRoute";
 import WatchLater from "./components/watchLater";
+import createHistory from 'history/createBrowserHistory';
+import PrivateRoute from './components/privateRoute';
+import PublicRoute from './components/publicRoute';
 
 export const history = createHistory();
 
