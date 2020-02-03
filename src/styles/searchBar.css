@@ -2,7 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 2rem 8px;
+    padding: 8px 8px;
 }
 
 .results {

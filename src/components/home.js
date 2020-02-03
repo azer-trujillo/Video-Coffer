@@ -1,16 +1,15 @@
 import React from 'react';
-import '../styles/home.css';
+import { connect } from 'react-redux';
+import { startLogout } from '../actions/auth';
+import { history } from '../routes';
 import SearchBar from './searchBar';
-import {connect} from 'react-redux';
-import {startLogout} from '../actions/auth';
-import {history} from '../routes';
+import '../styles/home.css';
 
-const toplayer = ()=>{
-        //ReactDOM.render(jsx, document.getElementById('root'));
-        history.push('/videoPlayer')
+const toplayer = () => {
+    history.push('/videoPlayer')
 };
 
-export const Home = ({startLogout}) => {
+export const Home = ({ startLogout }) => {
     return (
         <div className="Home">
             <div className="lander">
@@ -18,16 +17,16 @@ export const Home = ({startLogout}) => {
                 <p>If you love a video, don't let it go</p>
                 <SearchBar />
                 <div>
-                    <button onClick={function(event){ startLogout()}}>Logout</button>
-                    <button onClick={function(event){ toplayer()}}>player</button>
+                    <button onClick={function (event) { startLogout() }}>Logout</button>
+                    <button onClick={function (event) { toplayer() }}>player</button>
                 </div>
             </div>
         </div>
     );
 };
 
-const mapDispatchToProps=(dispatch)=>({
-    startLogout: () =>dispatch(startLogout())
+const mapDispatchToProps = (dispatch) => ({
+    startLogout: () => dispatch(startLogout())
 });
 
-export default connect(undefined,mapDispatchToProps)(Home);
+export default connect(undefined, mapDispatchToProps)(Home);

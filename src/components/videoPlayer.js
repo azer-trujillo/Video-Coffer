@@ -27,6 +27,7 @@ const VideoPlayer = () => {
                         className="embed-responsive-item"
                         src={`https://www.youtube.com/embed/${id}`}
                         allowFullScreen
+                        title="video"
                     />
                 </div>
             </div>

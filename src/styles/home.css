@@ -10,8 +10,9 @@
   
   .Home .lander p {
     color: #999;
+    margin-bottom: 3rem;
   }
 
   .Home .results {
-    margin-top: 2rem;
+    margin-top: 8px;
   }
