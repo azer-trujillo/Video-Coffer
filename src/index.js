@@ -9,6 +9,7 @@ import * as serviceWorker from './serviceWorker';
 import database, {firebase} from './firebase/firebaseConfig';
 import {history} from './routes';
 import {login, logout} from './actions/User';
+import { getVideoList,removeVideoList } from './actions/videoId';
 
 
 const store = configureStore();
@@ -21,17 +22,21 @@ const jsx = (
 );
 ReactDOM.render(jsx, document.getElementById('root'));
 
+store.subscribe(
+  ()=>{
+  }
+);
+
 firebase.auth().onAuthStateChanged((user)=>{ 
   if(user){
-    store.dispatch(login({user: user.displayName, name:user.displayName, email:user.email, id:user.uid }));
-    //ReactDOM.render(jsx, document.getElementById('root'));
     if(history.location.pathname === '/'){
+      store.dispatch(login({user: user.displayName, name:user.displayName, email:user.email, id:user.uid }));
+      store.dispatch(getVideoList(user.email));
       history.push('/home');
     }
     
   }else{
     store.dispatch(logout());
-    //ReactDOM.render(jsx, document.getElementById('root'));
     history.push('/');
   }
 });
