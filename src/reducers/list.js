@@ -1,7 +1,4 @@
-const listReducerDefaultState = [{
-    
-
-}];
+const listReducerDefaultState = [];
 
 const listReducer = (state = listReducerDefaultState  , action) => {
     switch (action.type) {
@@ -19,6 +16,7 @@ const listReducer = (state = listReducerDefaultState  , action) => {
                 ...state,
                 ...action.list
             ]
+            
     default:
         return state;
     }

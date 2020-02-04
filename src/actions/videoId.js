@@ -1,5 +1,6 @@
 import database from '../firebase/firebaseConfig';
-import list from '../actions/list';
+import {removeList,addList, getList} from '../actions/list';
+import { connect } from 'react-redux';
 
 
 const videoId = (key) => ({
@@ -14,7 +15,7 @@ function hashCode(s) {
 };
   
 
-export const addVideoList = (videoData)=>{
+export const addVideoList = (videoData={})=>{
     return (dispatch)=>{
         const {
             title = '',
@@ -27,10 +28,11 @@ export const addVideoList = (videoData)=>{
             title, description,id,thumbnail
         }
         const hash = hashCode(email)
-        database.ref(`videolist/${hash}`).push(video).then(()=>{
-            console.log('added to server')
+        return database.ref(`videolist/${hash}`).push(video).then((ref)=>{
+            dispatch(addList({title:videoData.title, description:videoData.description, id:videoData.id, sid:ref.key,thumbnail:videoData.thumbnail}));
         })
     };
+
 };
 
 export const getVideoList = (email)=>{
@@ -44,7 +46,7 @@ export const getVideoList = (email)=>{
                     ...child.val()
                 })
             })
-           console.log( savedvideos);
+            dispatch(getList(savedvideos));
         });
     };
 };
@@ -52,18 +54,12 @@ export const getVideoList = (email)=>{
 export const removeVideoList = (videoData)=>{
     return (dispatch)=>{
         const {
-            title = '',
-            description = '',
-            id='',
-            thumbnail= '',
+            sid='',
             email = ''
         }= videoData;
-        const video = {
-            title, description,id,thumbnail
-        }
         const hash = hashCode(email)
-        database.ref(`videolist/${hash}/${id}`).remove(video).then(()=>{
-            console.log('deleted from server')
+        database.ref(`videolist/${hash}/${sid}`).remove().then(()=>{
+            dispatch(removeList(sid));
         })
     };
 };
