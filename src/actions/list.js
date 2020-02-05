@@ -10,17 +10,17 @@ const video ={
 export const addList =(video)=>({
     type: 'ADD_LIST',
     video:{
-        title: video.title,
-        description: video.title,
-        id: video.id,
         sid: video.sid,
-        thumbnail: video.thumbnail
+        description: video.description,
+        id: video.id,
+        thumbnail: video.thumbnail,
+        title: video.title
     }
 }); 
 
 
 export const removeList =(id)=>({
-    type: 'ADD_LIST',
+    type: 'REMOVE_LIST',
     sid: id
 });
 

@@ -13,6 +13,7 @@ const SearchBar = () => {
     const dispatch = useDispatch();
     const videos = useSelector(state => state.videos);
     const sName = useSelector((state) => state.users);
+    //const list = useSelector((state) => state.list);
     const { email } = sName;
     const { fetched, fetching, error } = videos;
 
@@ -26,6 +27,9 @@ const SearchBar = () => {
         dispatch(videoId(key))
         history.push('/videoPlayer')
     };
+    const HandlePush = (videoData)=>{
+        dispatch(addVideoList(videoData))
+    }
 
     return (
         <div>
@@ -53,7 +57,7 @@ const SearchBar = () => {
                     const videoData = {
                         title: item.snippet.title,
                         description: item.snippet.description,
-                        id:item.snippet.id,
+                        id:item.id.videoId,
                         thumbnail: item.snippet.thumbnails.medium.url,
                         email: email
                     };
@@ -72,7 +76,7 @@ const SearchBar = () => {
                                     >Play</Button>
                                     <Button 
                                         variant="secondary"
-                                        onClick={addVideoList(videoData)}>Watch Later</Button>
+                                        onClick={()=>{HandlePush(videoData) }}>Watch Later</Button>
                                 </Card>
                             </CardDeck>
                         </div>
