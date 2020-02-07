@@ -5,11 +5,11 @@ import "../styles/clock.css";
 class Clock extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { time: new moment().format("LTS").toLocaleString() };
+    this.state = { time: new moment().format("LLL").toLocaleString() };
   }
 
   tick() {
-    this.setState({ time: new moment().format("LTS").toLocaleString() });
+    this.setState({ time: new moment().format("LLL").toLocaleString() });
   }
 
   componentDidMount() {
