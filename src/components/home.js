@@ -1,48 +1,28 @@
 import React from "react";
 import "../styles/home.css";
 import SearchBar from "./searchBar";
+import { useHistory } from "react-router-dom";
+import { ButtonGroup, Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { startLogout } from "../actions/auth";
-import { history } from "../routes";
 
-const toplayer = () => {
-  //ReactDOM.render(jsx, document.getElementById('root'));
-  history.push("/videoPlayer");
-};
-
-const towatchlater = () => {
-  history.push("/watchLater");
-};
 
 export const Home = ({ startLogout }) => {
+
+  const history = useHistory();
+
   return (
     <div className="Home">
-      <button
-        onClick={function(event) {
-          startLogout();
-        }}
-      >
-        Logout
-      </button>
+      <div className="d-flex flex-column">
+        <ButtonGroup>
+          <Button variant="warning" onClick={() => history.push("/videoPlayer")}>Video Player</Button>
+          <Button variant="warning" onClick={() => history.push("/watchLater")}>My List</Button>
+          <Button variant="warning" onClick={() => { startLogout() }}>Logout</Button>
+        </ButtonGroup>
+      </div>
       <div className="lander">
         <h1>Video Coffer</h1>
         <p>If you love a video, don't let it go</p>
-        <div className="buttons">
-          <button
-            onClick={function(event) {
-              toplayer();
-            }}
-          >
-            Video Player
-          </button>
-          <button
-            onClick={function(event) {
-              towatchlater();
-            }}
-          >
-            Watch Later List
-          </button>
-        </div>
         <SearchBar />
       </div>
     </div>
@@ -51,7 +31,7 @@ export const Home = ({ startLogout }) => {
 
 
 const mapDispatchToProps = (dispatch) => ({
-    startLogout: () => dispatch(startLogout())
+  startLogout: () => dispatch(startLogout())
 });
 
 export default connect(undefined, mapDispatchToProps)(Home);

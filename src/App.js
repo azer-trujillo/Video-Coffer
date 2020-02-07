@@ -5,20 +5,22 @@ import Clock from "./components/clock";
 import Routes from './routes';
 import './styles/app.css';
 
-const App = props => {
-  
+const App = () => {
+
   const usName = useSelector(state => state.users);
   const { name } = usName;
 
   return (
     <div className="App container">
       <Clock />
-      <Navbar bg="light" expand="lg">
+      <Navbar bg="danger" variant="dark" expand="lg">
         <img src="favicon.png" height="32" width="32" alt="chest-icon" />
         <Navbar.Brand href="/">Video Coffer</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
-          <Navbar.Text>{name}</Navbar.Text>
+          <Navbar.Text >
+            <a>{name}</a>
+          </Navbar.Text>
         </Navbar.Collapse>
       </Navbar>
       <Routes />
