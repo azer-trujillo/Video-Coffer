@@ -15,13 +15,6 @@ import {
 } from "react-bootstrap";
 import videoId from "../actions/videoId";
 
-/*const videoData = {
-  title: title,
-  id: id,
-  description: description,
-  thumbnail: thumbnail
-};*/
-
 export const WatchLater = () => {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -36,9 +29,6 @@ export const WatchLater = () => {
   };
 
   const HandlePush = item => {
-    //videolist.forEach(child => {
-    //  console.log(child);
-    //});
     const videoData = {
       sid: item.sid,
       email: email
