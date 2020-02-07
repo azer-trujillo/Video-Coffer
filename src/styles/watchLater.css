@@ -1,6 +1,13 @@
 .WatchLater .lander {
-  padding: 80px 120px;
+  padding: 80px 20px;
   text-align: center;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 8px 8px;
 }
 
 .WatchLater .lander h1 {
@@ -10,10 +17,13 @@
 
 .WatchLater .lander p {
   color: #999;
+  margin-bottom: 3rem;
 }
 
 .WatchLater .results {
   margin-top: 2rem;
+  margin: 0 auto;
+  display: block
 }
 
 .WatchLater .cardItem {

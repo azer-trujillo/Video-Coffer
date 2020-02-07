@@ -21,10 +21,6 @@ const jsx = (
 );
 ReactDOM.render(jsx, document.getElementById("root"));
 
-store.subscribe(() => {
-  console.log(store.getState().list);
-});
-
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
     if (history.location.pathname === "/") {

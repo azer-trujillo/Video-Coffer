@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { InputGroup, FormControl, Spinner, Card, Button, CardDeck, Alert } from 'react-bootstrap';
 import { debounce } from 'throttle-debounce';
 import videoSearch from '../actions/videos';
-import videoId, {addVideoList} from '../actions/videoId';
+import videoId, { addVideoList } from '../actions/videoId';
 import '../styles/searchBar.css';
 
 
@@ -13,7 +13,7 @@ const SearchBar = () => {
     const dispatch = useDispatch();
     const videos = useSelector(state => state.videos);
     const sName = useSelector((state) => state.users);
-    //const list = useSelector((state) => state.list);
+
     const { email } = sName;
     const { fetched, fetching, error } = videos;
 
@@ -27,7 +27,7 @@ const SearchBar = () => {
         dispatch(videoId(key))
         history.push('/videoPlayer')
     };
-    const HandlePush = (videoData)=>{
+    const HandlePush = (videoData) => {
         dispatch(addVideoList(videoData))
     }
 
@@ -57,7 +57,7 @@ const SearchBar = () => {
                     const videoData = {
                         title: item.snippet.title,
                         description: item.snippet.description,
-                        id:item.id.videoId,
+                        id: item.id.videoId,
                         thumbnail: item.snippet.thumbnails.medium.url,
                         email: email
                     };
@@ -74,9 +74,9 @@ const SearchBar = () => {
                                         variant="danger"
                                         onClick={() => { handleClick(item.id.videoId) }}
                                     >Play</Button>
-                                    <Button 
-                                        variant="secondary"
-                                        onClick={()=>{HandlePush(videoData) }}>Watch Later</Button>
+                                    <Button
+                                        variant="warning"
+                                        onClick={() => { HandlePush(videoData) }}>Watch Later</Button>
                                 </Card>
                             </CardDeck>
                         </div>
