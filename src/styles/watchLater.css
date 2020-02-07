@@ -15,3 +15,7 @@
 .WatchLater .results {
   margin-top: 2rem;
 }
+
+.WatchLater .cardItem {
+  width: 18rem;
+}

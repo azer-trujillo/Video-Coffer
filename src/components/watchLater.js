@@ -1,20 +1,54 @@
 import React from "react";
 import "../styles/watchLater.css";
-import SearchBar from "./searchBar";
+import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { connect } from "react-redux";
 import { startLogout } from "../actions/auth";
-import { history } from "../routes";
+import { removeVideoList } from "../actions/videoId";
+import {
+  InputGroup,
+  FormControl,
+  Spinner,
+  Card,
+  Button,
+  CardDeck
+} from "react-bootstrap";
+import videoId from "../actions/videoId";
 
-const toplayer = () => {
-  //ReactDOM.render(jsx, document.getElementById('root'));
-  history.push("/videoPlayer");
-};
-
-const towatchlater = () => {
-  history.push("/watchLater");
-};
+/*const videoData = {
+  title: title,
+  id: id,
+  description: description,
+  thumbnail: thumbnail
+};*/
 
 export const WatchLater = () => {
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  const videolist = useSelector(state => state.list);
+  const sName = useSelector(state => state.users);
+  const { email } = sName;
+
+  const toPlayer = key => {
+    dispatch(videoId(key));
+    history.push("/videoPlayer");
+  };
+
+  const HandlePush = item => {
+    //videolist.forEach(child => {
+    //  console.log(child);
+    //});
+    const videoData = {
+      sid: item.sid,
+      email: email
+    };
+    dispatch(removeVideoList(videoData));
+    history.push("/watchLater");
+  };
+
+  console.log(videolist);
+
   return (
     <div className="WatchLater">
       <p />
@@ -23,27 +57,45 @@ export const WatchLater = () => {
       <div className="lander">
         <h1>Video Coffer</h1>
         <p>If you love a video, don't let it go</p>
-        <div>
-          Your saved videos will appear here.
-          <p />
-          <button
-            onClick={function(event) {
-              toplayer();
-            }}
-          >
-            Video Player
-          </button>
-          <button
-            onClick={function(event) {
-              towatchlater();
-            }}
-          >
-            Watch Later List
-          </button>
-        </div>
+        {videolist.map(item => {
+          return (
+            <div key={item.id}>
+              <CardDeck>
+                <Card border="danger">
+                  <Card.Img variant="top" src={item.thumbnail} />
+                  <Card.Body>
+                    <Card.Title>{item.title}</Card.Title>
+                    <Card.Text>{item.description}</Card.Text>
+                    <Button
+                      variant="danger"
+                      onClick={() => {
+                        toPlayer(item.id);
+                      }}
+                    >
+                      Play
+                    </Button>
+                    <Button
+                      variant="warning"
+                      onClick={() => {
+                        HandlePush(item);
+                      }}
+                    >
+                      Remove from Watch List
+                    </Button>
+                  </Card.Body>
+                </Card>
+              </CardDeck>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
 };
 
 export default WatchLater;
+
+/*function mapStateToProps(state) {
+  return { todos: state };
+}
+export default connect(mapStateToProps)(WatchLater);*/
