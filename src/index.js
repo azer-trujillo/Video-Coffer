@@ -16,7 +16,6 @@ const jsx = (
   <Provider store={store}>
     <Router>
       <App />
-      <App.test/>
     </Router>
   </Provider>
 );
