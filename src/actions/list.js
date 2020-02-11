@@ -22,6 +22,7 @@ export const removeList = sid => ({
   sid: sid
 });
 
+
 export const getList = list => ({
   type: "GET_LIST",
   list: list

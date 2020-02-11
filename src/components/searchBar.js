@@ -23,6 +23,7 @@ const SearchBar = () => {
         dispatch(videoSearch({ keywords: e, maxResults: 50, pageToken: '' }))
     });
 
+    
     const handleClick = (key) => {
         dispatch(videoId(key))
         history.push('/videoPlayer')

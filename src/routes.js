@@ -13,6 +13,7 @@ import PublicRoute from './components/publicRoute';
 
 export const history = createHistory();
 
+
 const Routes = () => {
   return (
     <Router history={history}>
