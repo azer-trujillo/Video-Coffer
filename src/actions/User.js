@@ -1,4 +1,4 @@
-export const login =(
+export const login = (
     {
         user= '',
         name = '',
