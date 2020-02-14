@@ -4,7 +4,6 @@ import {Home} from '../../components/home';
 import configureStore from '../..//store/store'
 import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
-import TestRenderer from 'react-test-renderer'; 
 
 
 it('should render home', ()=>{

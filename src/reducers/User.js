@@ -2,7 +2,7 @@ const userReducerDefaultState = {
     user: undefined,
     name: undefined,
     email: undefined,
-    id: 0,
+    id: 0
 
 };
 
@@ -12,10 +12,10 @@ const userReducer = (state = userReducerDefaultState  , action) => {
         case 'LOGIN':
             return{
                 ...state,
-            user: action.user,
-            name: action.payload,
-            email: action.email,
-            id: action.id,
+                user: action.user,
+                name: action.payload,
+                email: action.email,
+                id: action.id,
             };
         case 'LOGOUT':
             return{};

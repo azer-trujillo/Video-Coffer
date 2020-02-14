@@ -1,35 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render login 1`] = `
-<Context.Provider
-  value={
+<Provider
+  store={
     Object {
-      "store": Object {
-        "dispatch": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-        Symbol(observable): [Function],
-      },
-      "subscription": Subscription {
-        "handleChangeWrapper": [Function],
-        "listeners": Object {
-          "notify": [Function],
-        },
-        "onStateChange": [Function],
-        "parentSub": undefined,
-        "store": Object {
-          "dispatch": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-          Symbol(observable): [Function],
-        },
-        "unsubscribe": null,
-      },
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
     }
   }
 >
-  <LoginPage />
-</Context.Provider>
+  <LoginPage>
+    <div
+      className="Login"
+    >
+      <Button
+        active={false}
+        disabled={false}
+        type="button"
+        variant="danger"
+      >
+        <button
+          className="btn btn-danger"
+          disabled={false}
+          type="button"
+        >
+          Sign in with Google
+        </button>
+      </Button>
+    </div>
+  </LoginPage>
+</Provider>
 `;

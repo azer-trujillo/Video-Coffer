@@ -1,5 +1,4 @@
 import {addVideoList,getVideoList,removeVideoList}from '../../actions/videoId';
-import { italic } from 'ansi-colors';
 
 it('It should create an add-video-list action object',()=>{
     const videoData={
@@ -14,3 +13,10 @@ it('It should create an add-video-list action object',()=>{
         type: 'asdf'
     }))
 });
+
+// it('Should create get-video-list',()=>{
+//     const action = getVideoList({emai:'raul_lopez@partnerhero.com'});
+//     expect(action).toEqual({
+
+//     })
+// })

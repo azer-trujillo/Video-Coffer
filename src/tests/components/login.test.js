@@ -4,16 +4,17 @@ import {LoginPage} from '../../components/login';
 import configureStore from '../..//store/store'
 import { Provider } from "react-redux";
 
+import {shallow, mount} from 'enzyme';
+
 
 it('should render login', ()=>{
     const store = configureStore();
-    const renderer = new ReactShallowRenderer();
-    renderer.render(
+    const wrapper = mount(
         <Provider store={store}>
         <LoginPage />
         </Provider>
         
           
     );
-    expect(renderer.getRenderOutput()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
 })
