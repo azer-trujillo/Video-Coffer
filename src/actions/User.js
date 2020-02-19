@@ -1,4 +1,4 @@
-export const login =(
+export const login = (
     {
         user= '',
         name = '',
@@ -13,6 +13,7 @@ export const login =(
     id
 
 });
+
 
 export const logout = ()=>({
     type:'LOGOUT'

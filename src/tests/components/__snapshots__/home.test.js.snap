@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render home 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Home>
+        <div
+          className="Home"
+        >
+          <div
+            className="d-flex flex-column"
+          >
+            <ButtonGroup
+              role="group"
+              toggle={false}
+              vertical={false}
+            >
+              <div
+                className="btn-group"
+                role="group"
+              >
+                <Button
+                  active={false}
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                  variant="warning"
+                >
+                  <button
+                    className="btn btn-warning"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Video Player
+                  </button>
+                </Button>
+                <Button
+                  active={false}
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                  variant="warning"
+                >
+                  <button
+                    className="btn btn-warning"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    My List
+                  </button>
+                </Button>
+                <Button
+                  active={false}
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                  variant="warning"
+                >
+                  <button
+                    className="btn btn-warning"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Logout
+                  </button>
+                </Button>
+              </div>
+            </ButtonGroup>
+          </div>
+          <div
+            className="lander"
+          >
+            <h1>
+              Video Coffer
+            </h1>
+            <p>
+              If you love a video, don't let it go
+            </p>
+            <SearchBar>
+              <div>
+                <InputGroup
+                  size="lg"
+                >
+                  <div
+                    className="input-group input-group-lg"
+                  >
+                    <FormControl
+                      onChange={[Function]}
+                      placeholder="Inject queries here..."
+                    >
+                      <input
+                        className="form-control"
+                        onChange={[Function]}
+                        placeholder="Inject queries here..."
+                      />
+                    </FormControl>
+                  </div>
+                </InputGroup>
+                <div
+                  className="flex-container"
+                />
+              </div>
+            </SearchBar>
+          </div>
+        </div>
+      </Home>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;

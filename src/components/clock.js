@@ -7,6 +7,7 @@ class Clock extends React.Component {
     super(props);
     this.state = { time: new moment().format("LLL").toLocaleString() };
   }
+  
 
   tick() {
     this.setState({ time: new moment().format("LLL").toLocaleString() });

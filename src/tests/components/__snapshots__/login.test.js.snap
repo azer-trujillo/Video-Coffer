@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render login 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <LoginPage>
+    <div
+      className="Login"
+    >
+      <Button
+        active={false}
+        disabled={false}
+        type="button"
+        variant="danger"
+      >
+        <button
+          className="btn btn-danger"
+          disabled={false}
+          type="button"
+        >
+          Sign in with Google
+        </button>
+      </Button>
+    </div>
+  </LoginPage>
+</Provider>
+`;

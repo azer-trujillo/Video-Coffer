@@ -9,6 +9,7 @@ import { startLogout } from "../actions/auth";
 
 export const Home = ({ startLogout }) => {
 
+  
   const history = useHistory();
 
   return (

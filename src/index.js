@@ -19,6 +19,7 @@ const jsx = (
     </Router>
   </Provider>
 );
+
 ReactDOM.render(jsx, document.getElementById("root"));
 
 firebase.auth().onAuthStateChanged(user => {
